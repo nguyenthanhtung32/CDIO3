@@ -1,0 +1,12 @@
+.link {
+    font-size: 14px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left: 20px;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .link:hover {
+    color: #ccc;
+  }
