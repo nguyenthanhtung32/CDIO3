@@ -15,29 +15,33 @@ import CreateVeXe from "./VeXe/create";
 import Xe from "./Xe";
 import CreateXe from "./Xe/create";
 import KhachHang from "./KhachHang";
+import ThongKe from "./ThongKe";
 
-function BaseWebRouter() {
+interface IProps {
+  setIsLogin: (value: boolean) => void;
+}
+
+function BaseWebRouter(props: IProps) {
+  const { setIsLogin } = props;
+
   return (
     <BrowserRouter>
-      <Header
-        setIsLogin={function (value: boolean): void {
-          throw new Error("Function not implemented.");
-        }}
-      />
+      <Header setIsLogin={setIsLogin} />
       <Navigation />
       <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<Dashboard />} />
         <Route path="/chuyenxe" element={<ChuyenXe />} />
         <Route path="/createchuyenxe" element={<CreateChuyenXe />} />
         <Route path="/lotrinh" element={<LoTrinh />} />
         <Route path="/createlotrinh" element={<CreateLoTrinh />} />
-        <Route path="/nhanvien" element={<NhanVien/>} />
+        <Route path="/nhanvien" element={<NhanVien />} />
         <Route path="/createnhanvien" element={<CreateNhanVien />} />
-        <Route path="/vexe" element={<VeXe/>} />
+        <Route path="/vexe" element={<VeXe />} />
         <Route path="/createvexe" element={<CreateVeXe />} />
-        <Route path="/xe" element={<Xe/>} />
+        <Route path="/xe" element={<Xe />} />
         <Route path="/createxe" element={<CreateXe />} />
         <Route path="/khachhang" element={<KhachHang />} />
+        <Route path="/thongke" element={<ThongKe />} />
         <Route
           path="#"
           element={

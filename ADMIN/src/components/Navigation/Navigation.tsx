@@ -1,64 +1,76 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary bg-light mb-5">
       <div className="container-fluid ">
-        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a
+              <Link
                 className="nav-link active text-dark"
                 aria-current="page"
-                href="/dashboard"
+                to="/"
               >
                 Dashboard
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
-                className="nav-link active text-dark"
+              <Link
+                className="nav-link text-dark"
                 aria-current="page"
-                href="/chuyenxe"
+                to="/chuyenxe"
               >
                 Chuyến xe
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
-                className="nav-link active text-dark"
+              <Link
+                className="nav-link text-dark"
                 aria-current="page"
-                href="/vexe"
+                to="/vexe"
               >
                 Vé xe
-              </a>
+              </Link>
             </li>
 
             <li className="nav-item ">
-              <a className="nav-link text-dark" href="/khachhang">
+              <Link className="nav-link text-dark" to="/khachhang">
                 Khách hàng
-              </a>
+              </Link>
             </li>
             <li className="nav-item ">
-              <a className="nav-link text-dark" href="/lotrinh">
+              <Link className="nav-link text-dark" to="/lotrinh">
                 Lộ trình
-              </a>
+              </Link>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link text-dark" href="/xe">
+              <Link className="nav-link text-dark" to="/xe">
                 Xe
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-dark" href="/nhanvien">
+              <Link className="nav-link text-dark" to="/nhanvien">
                 Nhân viên
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-dark" href="/thongke">
+              <Link className="nav-link text-dark" to="/thongke">
                 Thống kê
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
