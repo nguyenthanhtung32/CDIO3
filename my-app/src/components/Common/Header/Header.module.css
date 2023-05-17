@@ -1,12 +1,6 @@
-.h_355 {
-    height: 500px;
-
-}
-
-.background_img {
+/* .background_img {
     background-image: url("../../../assets/images/Xe-Hoa-Thuan.jpg");
     height: 400px;
-    /* width: 800px; */
     background-repeat: no-repeat;
     background-size: cover;
     margin: 5% auto;
@@ -15,9 +9,9 @@
     border-radius: 4px;
     box-shadow: 0px 0px 5px #2a3cad;
     position: relative;
-}
+} */
 
-.box {
+/* .box {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -31,9 +25,9 @@
     border: 2px solid #2a3cad;
     color: white;
     padding: 20px;
-}
+} */
 
-.box:before {
+/* .box:before {
     content: "";
     position: absolute;
     top: 0;
@@ -87,9 +81,9 @@
     height: 2px;
     background: #50dfdb;
     animation: animate 4s linear infinite;
-}
+} */
 
-@keyframes animate {
+/* @keyframes animate {
     0% {
         transform: scaleX(0);
         transform-origin: left;
@@ -109,13 +103,13 @@
         transform: scaleX(0);
         transform-origin: right;
     }
-}
+} */
 
-.marquee p {
+/* .marquee p {
     animation: marquee 10s linear infinite;
-}
+} */
 
-@keyframes marquee {
+/* @keyframes marquee {
     0% {
         transform: translateX(0%);
     }
@@ -123,4 +117,128 @@
     100% {
         transform: translateX(-100%);
     }
+} */
+
+.best_seller {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.red {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.blue {
+    color: #8989ce;
+    cursor: pointer;
+}
+
+.white {
+    color: var(--light-black);
+    cursor: pointer;
+}
+
+.grey {
+    color: grey;
+    cursor: pointer;
+}
+
+.brown {
+    color: rgb(175, 53, 53);
+    cursor: pointer;
+}
+
+.yellow {
+    color: #ffff00;
+    cursor: pointer;
+}
+
+.orange {
+    color: #ffa500;
+    cursor: pointer;
+}
+
+.green {
+    color: #008000;
+    cursor: pointer;
+}
+
+.top_sales {
+    margin-top: 65px;
+    margin-bottom: 20px;
+}
+
+.best_p1 {
+    width: 250px;
+    height: 370px;
+    /* border: 2px solid black; */
+}
+
+.img {
+    height: 250px;
+    width: 250px;
+}
+
+.seller .best-p1 .price {
+    display: flex;
+    justify-content: space-between;
+}
+
+.seller .best-p1 .price .colors input[type="radio"] {
+    color: #000;
+    background-color: #000;
+}
+
+.best-seller .buy-now a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.seller a:hover {
+    color: #f05e8a;
+}
+
+ .buy_now{
+    padding: 10px 15px;
+    margin-top: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #f05e8a;
+    color: var(--white);
+    border: none;
+    border-radius: 15px;
+    font-weight: 500;
+    border: 1px solid #f05e8a;
+    transition: 0.5s;
+ }
+.best-seller .add-cart button {
+    padding: 10px 15px;
+    margin-top: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #f05e8a;
+    color: var(--white);
+    border: none;
+    border-radius: 15px;
+    font-weight: 500;
+    border: 1px solid #f05e8a;
+    transition: 0.5s;
+}
+
+.buy_now:hover{
+    background-color: var(--white);
+    font-weight: 600;
+}
+.best-seller .add-cart button:hover {
+    background-color: var(--white);
+    font-weight: 600;
+}
+
+.best-seller .buy-now button:hover a,
+.best-seller .add-cart button:hover a {
+    color: #f05e8a;
 }

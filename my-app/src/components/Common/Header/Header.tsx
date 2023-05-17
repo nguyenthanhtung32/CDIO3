@@ -1,9 +1,10 @@
-import Styles from "./Header.module.css";
+import { Button, DatePicker, Input, Space } from "antd";
+// import Styles from "./Header.module.css";
 
 export default function Header() {
   return (
     <>
-      <div className="container">
+      {/* <div className="container">
         <div className="row mt-3">
           <div className="col-12 col-md-3 col-content ">
             <p className="border-bottom p-3 mx-3">Trang Chủ</p>
@@ -54,9 +55,65 @@ export default function Header() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+      {
+        <div style={{ position: "relative" }}>
+          <img
+            src="https://static.vexere.com/production/banners/910/leaderboard_1440x480-(2).jpg"
+            alt=""
+            style={{ width: "100%", marginBottom: "40px" }}
+          />
+          <div
+            // className={Styles.title}
+            style={{
+              position: "absolute",
+              top: "32%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              textAlign: "center",
+              width: "100%",
+            }}
+          >
+            <h2
+              style={{
+                color: "white",
+                fontSize: "34px",
+                fontWeight: 500,
+                marginBottom: "0px",
+                textAlign: "center",
+                lineHeight: 1,
+                whiteSpace: "nowrap",
+              }}
+            >
+              Cam Kết hoàn 150% nếu nhà xe không giữ vé
+            </h2>
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              textAlign: "center",
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Space.Compact>
+              <Input
+                style={{  height: "50px" }}
+                placeholder="Nơi xuất phát"
+              />
+              <Input placeholder="Nơi đến" />
+              <DatePicker style={{ width: "200px" }} placeholder="Ngày đi" />
+              <Button type="primary" ghost style={{ height: "50px" }}>
+                Tìm Chuyến
+              </Button>
+            </Space.Compact>
+          </div>
+        </div>
+      }
     </>
   );
-};
-
-
+}

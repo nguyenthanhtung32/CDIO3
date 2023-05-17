@@ -2,10 +2,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: #ffffff;
-    padding: 80px 0;
+    background-color: #dee2e6;
+    padding: 30px 0;
     font-size: 14px;
     line-height: 26px;
+    margin-top: 20px;
   }
   
   .footer_info h2,
@@ -31,7 +32,7 @@
   .footer_follow ul li,
   .footer_download ul li {
     padding-bottom: 10px;
-    color: #555;
+    color: #141619c2;
     cursor: pointer;
   }
   
