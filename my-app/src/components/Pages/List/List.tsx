@@ -57,12 +57,65 @@ export default function CategoryList() {
 
   return (
     <>
-    <Header/>
-    <div style={{ padding: 15 }}>
-      <Table dataSource={dataSource} columns={columns} />
-    </div>
-    <Footer/>
+      <Header />
+      <div style={{ padding: 15, width: "auto" }}>
+        <Table
+          dataSource={dataSource}
+          columns={columns}
+          style={{ width: "auto" }}
+        />
+      </div>
+      {/* <div className="table">
+        <div className="tr" style={{marginBottom: '2px'}}>
+          <div style={{ display: "flex" }}>
+            <div className="td" style={{ marginRight: "5px", width: "30%" }}>
+              #
+            </div>
+            <div className="td">i</div>
+          </div>
+          <div style={{ display: "flex" }}>
+            <div className="td" style={{ marginRight: "5px", width: "30%" }}>
+              First
+            </div>
+            <div className="td">Mark</div>
+          </div>
+          <div style={{ display: "flex" }}>
+            <div className="td" style={{ marginRight: "5px", width: "30%" }}>
+              Last
+            </div>
+            <div className="td">Otto</div>
+          </div>
+        </div>
+        <div className="tr" style={{marginBottom: '2px'}}>
+          <div style={{ display: "flex" }}>
+            <div className="td" style={{ marginRight: "5px", width: "30%" }}>
+              #
+            </div>
+            <div className="td">aaaa</div>
+            <div className="td" style={{ marginRight: "5px", width: "30%" }}>
+              #
+            </div>
+            <div className="td">vvvvv</div>
+            <div className="td" style={{ marginRight: "5px", width: "30%" }}>
+              #
+            </div>
+            <div className="td">vvvvv</div>
+          </div>
+          <div style={{ display: "flex" }}>
+            <div className="td" style={{ marginRight: "5px", width: "30%" }}>
+              First
+            </div>
+            <div className="td">Mark</div>
+          </div>
+          <div style={{ display: "flex" }}>
+            <div className="td" style={{ marginRight: "5px", width: "30%" }}>
+              Last
+            </div>
+            <div className="td">Otto</div>
+          </div>
+        </div>
+      </div> */}
+      <Footer />
     </>
-    
   );
 }

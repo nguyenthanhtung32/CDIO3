@@ -7,45 +7,42 @@ export default function Detail() {
   return (
     <>
       <Header />
-      <div
-        className={Styles.product}
-        style={{ transition: "transform 0.2s ease-in-out" }}
-        onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-        onMouseOut={(e) => (e.currentTarget.style.transform = "")}
-      >
-        <div className={Styles.product_images}></div>
-        <div className={Styles.product_details}>
-          <div className={Styles.name}>
-            <h2>Phúc An Express</h2>
-          </div>
-          <div>
-            <p>Limousine giường nằm 22 chỗ (có toilet)</p>
-            <div className="d-flex">
-              <h4>21:30 </h4>
-              <span>• VP Sài Gòn</span>
+      <div className="container">
+        <div
+          className={Styles.product}
+          style={{ transition: "transform 0.2s ease-in-out" }}
+          onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+          onMouseOut={(e) => (e.currentTarget.style.transform = "")}
+        >
+          <div className={Styles.product_images}></div>
+          <div className={Styles.product_details}>
+            <div className={Styles.name}>
+              <h2>Phúc An Express</h2>
             </div>
-            <span>9h10m</span>
-            <div className="d-flex">
-              <h4>06:40</h4>
-              <span>• VP Nha Trang</span>
+            <div>
+              <p>Limousine giường nằm 22 chỗ (có toilet)</p>
+              <div className="d-flex">
+                <h4>21:30 </h4>
+                <span>• VP Sài Gòn</span>
+              </div>
+              <span>9h10m</span>
+              <div className="d-flex">
+                <h4>06:40</h4>
+                <span>• VP Nha Trang</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div>
-          <div className={Styles.price}>
-            <h3>450.000đ</h3>
-          </div>
-          <div className={Styles.car}>
-            <div className="btn btn-warning me-2">Thêm vào giỏ hàng</div>
-            <div className="btn btn-outline-secondary">
-              <span className="material-symbols-outlined">
-                Thêm vào yêu thích
-              </span>
+          <div className={Styles.aaaa}>
+            <div className={Styles.price}>
+              <h3>450.000đ</h3>
+            </div>
+            <div className={Styles.car}>
+              <div className="btn btn-warning">Thêm vào giỏ hàng</div>
             </div>
           </div>
         </div>
       </div>
-      <div
+      {/* <div
         className={Styles.product}
         style={{ transition: "transform 0.2s ease-in-out" }}
         onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
@@ -82,8 +79,8 @@ export default function Detail() {
             </div>
           </div>
         </div>
-      </div>
-      <div
+      </div> */}
+      {/* <div
         className={Styles.product}
         style={{ transition: "transform 0.2s ease-in-out" }}
         onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
@@ -120,7 +117,7 @@ export default function Detail() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <Footer />
     </>
   );

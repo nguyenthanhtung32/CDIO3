@@ -1,77 +1,79 @@
 import React from "react";
-import { Button, Checkbox, Form, Input } from "antd";
 
 const onFinish = (values: any) => {
   console.log("Success:", values);
 };
 
-const onFinishFailed = (errorInfo: any) => {
-  console.log("Failed:", errorInfo);
-};
-
 const SignUp: React.FC = () => (
   <div style={{ padding: 20 }}>
-    <Form
-      name="basic"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
-      style={{ maxWidth: 600 , border : '1px solid #f2c94c', paddingTop : 20 , borderRadius : '5px' }}
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
+    <form
+      onSubmit={onFinish}
+      className="w-50 mx-auto border border-success mt-5 mb-5"
     >
-      <Form.Item
-        label="Tên đăng kí"
-        name="name"
-        rules={[{ required: true, message: "Vui lòng nhập tên đăng nhập!" }]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label="Ngày Sinh"
-        name="brithday"
-        rules={[{ required: true, message: "Vui lòng nhập ngày sinh!" }]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label="Địa Chỉ"
-        name="address"
-        rules={[{ required: true, message: "Vui lòng nhập đại chỉ!" }]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
-        label="Mật khẩu"
-        name="password"
-        rules={[{ required: true, message: "Vui lòng nhập mật khẩu!" }]}
-      >
-        <Input.Password />
-      </Form.Item>
-      <Form.Item
-        label="Nhập lại mật khẩu"
-        name="password"
-        rules={[{ required: true, message: "Vui lòng nhập mật khẩu!" }]}
-      >
-        <Input.Password />
-      </Form.Item>
-
-      <Form.Item
-        name="remember"
-        valuePropName="checked"
-        wrapperCol={{ offset: 8, span: 16 }}
-      >
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
-
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
+      <div className="mb-3 ms-5 me-5">
+        <label className="form-label ">Tên đăng kí</label>
+        <input
+          className="form-control border-success"
+          type="text"
+          name="userName"
+          //   defaultValue={userName}
+          //   onChange={handleName}
+        />
+      </div>
+      <div className="mb-3 ms-5 me-5">
+        <label className="form-label">Email</label>
+        <input
+          type="email"
+          className="form-control border-success"
+          id="exampleFormControlInput1"
+        />
+      </div>
+      <div className="mb-3 ms-5 me-5">
+        <label className="form-label ">Ngày sinh</label>
+        <input
+          className="form-control border-success"
+          type="text"
+          name="userName"
+          placeholder="Default input"
+          //   defaultValue={userName}
+          //   onChange={handleName}
+        />
+      </div>
+      <div className="mb-3 ms-5 me-5">
+        <label className="form-label ">Địa chỉ</label>
+        <input
+          className="form-control border-success"
+          type="text"
+          name="userName"
+          placeholder="Default input"
+          //   defaultValue={userName}
+          //   onChange={handleName}
+        />
+      </div>
+      <div className="mb-3 ms-5 me-5">
+        <label className="form-label">Mật khẩu</label>
+        <input
+          className="form-control border-success"
+          type="password"
+          name="userAge"
+          //   defaultValue={userPassWord}
+          //   onChange={handleAge}
+        />
+      </div>
+      <div className="mb-3 ms-5 me-5">
+        <label className="form-label">Nhập lại mật khẩu</label>
+        <input
+          className="form-control border-success"
+          type="password"
+          name="userAge"
+          //   defaultValue={userPassWord}
+          //   onChange={handleAge}
+        />
+      </div>
+      <button type="submit" className="btn btn-success ms-5 mb-5">
+        Sign Up
+      </button>
+    </form>
   </div>
 );
 
