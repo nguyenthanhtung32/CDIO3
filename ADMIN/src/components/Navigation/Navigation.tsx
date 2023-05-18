@@ -19,11 +19,7 @@ const Navigation = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link
-                className="nav-link active text-dark"
-                aria-current="page"
-                to="/"
-              >
+              <Link className="nav-link text-dark" aria-current="page" to="/">
                 Dashboard
               </Link>
             </li>
