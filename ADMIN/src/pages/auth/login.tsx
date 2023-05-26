@@ -14,7 +14,7 @@ const Login: React.FC<IProps> = (props) => {
     e.preventDefault();
     console.log(userName, password);
     /* setIsLogin && setIsLogin(true); */
-    if (userName === "tung" && password === "tung2306") {
+    if (userName === "admin" && password === "123456") {
       console.log(1);
       setIsLogin(true);
       alert("Login success !!!");

@@ -27,7 +27,7 @@ const Navigation = () => {
               <Link
                 className="nav-link text-dark"
                 aria-current="page"
-                to="/chuyenxe"
+                to="/trips"
               >
                 Chuyến xe
               </Link>
@@ -36,35 +36,35 @@ const Navigation = () => {
               <Link
                 className="nav-link text-dark"
                 aria-current="page"
-                to="/vexe"
+                to="/tickets"
               >
                 Vé xe
               </Link>
             </li>
 
             <li className="nav-item ">
-              <Link className="nav-link text-dark" to="/khachhang">
+              <Link className="nav-link text-dark" to="/customers">
                 Khách hàng
               </Link>
             </li>
             <li className="nav-item ">
-              <Link className="nav-link text-dark" to="/lotrinh">
+              <Link className="nav-link text-dark" to="/route">
                 Lộ trình
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link text-dark" to="/xe">
+              <Link className="nav-link text-dark" to="/cars">
                 Xe
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-dark" to="/nhanvien">
+              <Link className="nav-link text-dark" to="/employees">
                 Nhân viên
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-dark" to="/thongke">
+              <Link className="nav-link text-dark" to="/statistical">
                 Thống kê
               </Link>
             </li>

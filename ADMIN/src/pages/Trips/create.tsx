@@ -1,13 +1,13 @@
-import { Button, Form, Input, InputNumber, message } from "antd";
+import { Button, Form, Input, message } from "antd";
 import { useNavigate } from "react-router-dom";
 
-export default function CreateChuyenXe() {
+export default function CreateTrips() {
   const navigate = useNavigate();
 
   const [createForm] = Form.useForm();
 
   const onFinish = () => {
-    navigate("/chuyenxe");
+    navigate("/trips");
     message.success("Thêm chuyến xe thành công!", 1.5);
   };
 
@@ -25,36 +25,35 @@ export default function CreateChuyenXe() {
             span: 16,
           }}
         >
-          <Form.Item label="ID" name="name" hasFeedback required={true}>
+          <Form.Item
+            label="Nơi xuất phát"
+            name="start"
+            hasFeedback
+            required={true}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item label="Nơi đến" name="end" hasFeedback required={true}>
             <Input />
           </Form.Item>
           <Form.Item
-            label="Biển số xe"
-            name="biensoxe"
+            label="Ngày đi"
+            name="departureDay"
             hasFeedback
             required={true}
           >
             <Input />
           </Form.Item>
           <Form.Item
-            label="Số lượng vé"
-            name="soluongve"
+            label="Ngày đến"
+            name="arrivalDate"
             hasFeedback
             required={true}
           >
             <Input />
           </Form.Item>
-          <Form.Item
-            label="ID Lộ trình"
-            name="lotrinhID"
-            hasFeedback
-            required={true}
-          >
+          <Form.Item label="Thời gian" name="time" hasFeedback required={true}>
             <Input />
-          </Form.Item>
-
-          <Form.Item label="Giá vé" name="price" hasFeedback required={true}>
-            <InputNumber style={{ width: 500 }} />
           </Form.Item>
 
           <Form.Item

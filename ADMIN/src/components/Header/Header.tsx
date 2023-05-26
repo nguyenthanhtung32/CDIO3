@@ -12,7 +12,10 @@ const Header: React.FC<IProps> = (props) => {
     <nav className="navbar bg-light">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          Vé Xe
+          <img
+            alt=""
+            src="https://storage.googleapis.com/fe-production/icon_vxr_full.svg"
+          ></img>
         </Link>
         <button
           type="button"

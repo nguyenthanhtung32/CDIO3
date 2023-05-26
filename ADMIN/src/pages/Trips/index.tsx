@@ -1,14 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+import axios from "../../libraries/axiosClient";
 import type { ColumnsType } from "antd/es/table";
-import {
-  Button,
-  Input,
-  Modal,
-  Space,
-  Table,
-  Form,
-  message,
-} from "antd";
+import { Button, Input, Modal, Space, Table, Form, message } from "antd";
 import {
   AppstoreAddOutlined,
   DeleteOutlined,
@@ -16,34 +9,52 @@ import {
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
-export default function ChuyenXe() {
+const apiName = "/trips";
+
+export default function Trips() {
+  const [trips, setTrips] = React.useState<any[]>([]);
+
+  const [refresh, setRefresh] = React.useState<number>(0);
   const [open, setOpen] = React.useState<boolean>(false);
+  const [updateId, setUpdateId] = React.useState<number>(0);
+
+  const [deleteCategoryId, setDeleteCategoryId] = React.useState<number>(0);
+  const [showDeleteConfirm, setShowDeleteConfirm] =
+    React.useState<boolean>(false);
+
   const [updateForm] = Form.useForm();
 
   const navigate = useNavigate();
 
   const create = () => {
-    navigate("/createchuyenxe");
+    navigate("/createTrips");
   };
 
-  const [data] = useState([
-    {
-      id: 1,
-      xuatphat: "Hà Nội",
-      noiden: "Sài Gòn",
-      ngaydi: "21/05/2023",
-      ngayden: "22/05/2023",
-      thoigian: "15h00",
-    },
-    {
-      id: 2,
-      xuatphat: "Đà Nẵng",
-      noiden: "Nha Trang",
-      ngaydi: "26/05/2023",
-      ngayden: "27/05/2023",
-      thoigian: "19h00",
-    },
-  ]);
+  const showConfirmDelete = (CategoryId: number) => {
+    setDeleteCategoryId(CategoryId);
+    setShowDeleteConfirm(true);
+  };
+
+  const handleDeleteCategory = () => {
+    axios.delete(apiName + "/" + deleteCategoryId).then(() => {
+      setRefresh((f) => f + 1);
+      message.success("Xóa sản phẩm thành công!", 1.5);
+      setShowDeleteConfirm(false);
+    });
+  };
+
+  const deleteConfirmModal = (
+    <Modal
+      title="Xóa sản phẩm"
+      open={showDeleteConfirm}
+      onOk={handleDeleteCategory}
+      onCancel={() => setShowDeleteConfirm(false)}
+      okText="Xóa"
+      cancelText="Hủy"
+    >
+      <p>Bạn có chắc chắn muốn xóa sản phẩm?</p>
+    </Modal>
+  );
 
   const columns: ColumnsType<any> = [
     {
@@ -58,40 +69,40 @@ export default function ChuyenXe() {
     },
     {
       title: "Nơi xuất phát",
-      dataIndex: "xuatphat",
-      key: "xuatphat",
+      dataIndex: "start",
+      key: "start",
       render: (text, record, index) => {
         return <span>{text}</span>;
       },
     },
     {
       title: "Nơi đến",
-      dataIndex: "noiden",
-      key: "noiden",
+      dataIndex: "end",
+      key: "end",
       render: (text, record, index) => {
         return <span>{text}</span>;
       },
     },
     {
       title: "Ngày đi",
-      dataIndex: "ngaydi",
-      key: "ngaydi",
+      dataIndex: "departureDay",
+      key: "departureDay",
       render: (text, record, index) => {
         return <span>{text}</span>;
       },
     },
     {
       title: "Ngày đến",
-      dataIndex: "ngayden",
-      key: "ngayden",
+      dataIndex: "arrivalDate",
+      key: "arrivalDate",
       render: (text, record, index) => {
         return <span>{text}</span>;
       },
     },
     {
       title: "Thời gian",
-      dataIndex: "thoigian",
-      key: "thoigian",
+      dataIndex: "time",
+      key: "time",
       render: (text, record, index) => {
         return <span>{text}</span>;
       },
@@ -105,9 +116,17 @@ export default function ChuyenXe() {
               icon={<EditOutlined />}
               onClick={() => {
                 setOpen(true);
+                setUpdateId(record._id);
+                updateForm.setFieldsValue(record);
               }}
             />
-            <Button danger icon={<DeleteOutlined />} />
+            <Button
+              danger
+              icon={<DeleteOutlined />}
+              onClick={() => {
+                showConfirmDelete(record._id);
+              }}
+            />
           </Space>
         );
       },
@@ -125,13 +144,37 @@ export default function ChuyenXe() {
       ),
     },
   ];
-  const onUpdateFinish = () => {
-    message.success("Cập nhật thành công!", 1.5);
+
+  React.useEffect(() => {
+    axios
+      .get(apiName)
+      .then((response: any) => {
+        const { data } = response;
+        setTrips(data);
+      })
+      .catch((err: any) => {
+        console.error(err);
+      });
+  }, [refresh]);
+
+  const onUpdateFinish = (values: any) => {
+    axios
+      .patch(apiName + "/" + updateId, values)
+      .then(() => {
+        setRefresh((f) => f + 1);
+        updateForm.resetFields();
+        message.success("Cập nhật danh mục thành công!", 1.5);
+        setOpen(false);
+      })
+      .catch((err: any) => {
+        console.error(err);
+      });
   };
 
   return (
     <div style={{ padding: 24 }}>
-      <Table rowKey="id" dataSource={data} columns={columns} />
+      <Table rowKey="id" dataSource={trips} columns={columns} />
+      {deleteConfirmModal}
       <Modal
         open={open}
         title="Cập nhật danh mục"
@@ -157,23 +200,18 @@ export default function ChuyenXe() {
         >
           <Form.Item
             label="Nơi xuất phát"
-            name="xuatphat"
+            name="start"
             hasFeedback
             required={true}
           >
             <Input />
           </Form.Item>
-          <Form.Item
-            label="Nơi đến"
-            name="noiden"
-            hasFeedback
-            required={true}
-          >
+          <Form.Item label="Nơi đến" name="end" hasFeedback required={true}>
             <Input />
           </Form.Item>
           <Form.Item
             label="Ngày đi"
-            name="ngaydi"
+            name="departureDay"
             hasFeedback
             required={true}
           >
@@ -181,22 +219,15 @@ export default function ChuyenXe() {
           </Form.Item>
           <Form.Item
             label="Ngày đến"
-            name="ngayden"
+            name="arrivalDate"
             hasFeedback
             required={true}
           >
             <Input />
           </Form.Item>
-          <Form.Item
-            label="Thời gian"
-            name="thoigian"
-            hasFeedback
-            required={true}
-          >
+          <Form.Item label="Thời gian" name="time" hasFeedback required={true}>
             <Input />
           </Form.Item>
-
-          
         </Form>
       </Modal>
     </div>
