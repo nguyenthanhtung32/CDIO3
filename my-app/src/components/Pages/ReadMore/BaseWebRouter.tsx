@@ -19,6 +19,7 @@ function BaseWebRouter() {
         <Route path="/list" element={<List />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/detail" element={<Detail />} />
+        <Route path="/list/detail/:id" element={<Detail />} />
         <Route path="*" element={<p>404 Page not found</p>} />
       </Routes>
       {/* <Footer /> */}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // interface IProps {
 //   setIsLogin: (value: boolean) => void;
@@ -7,6 +8,7 @@ import React, { useEffect, useState } from "react";
 const Login: React.FC = () => {
 
   //let params = useParams();
+  const navigate = useNavigate();
   const [userName, setUserName] = useState<string>();
   const [userPassWord, setUserPassWord] = useState("");
 
@@ -20,6 +22,7 @@ const Login: React.FC = () => {
 
     if (userName === "HoangVinh" && userPassWord === "Vinh02") {
       alert("login thanh cong");
+      navigate('/');
     } else {
       alert("login fail");
     }
