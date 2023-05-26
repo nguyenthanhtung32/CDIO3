@@ -1,0 +1,36 @@
+.buy_now {
+  padding: 10px 15px;
+  margin-top: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: #f2c94c;
+  color: var(--white);
+  border: none;
+  border-radius: 15px;
+  font-weight: 500;
+  border: 1px solid #f05e8a;
+  transition: 0.5s;
+  text-decoration: none;
+}
+.buy_now:hover {
+  background-color: var(--white);
+  font-weight: 600;
+}
+.title {
+  display: flex;
+  align-items: flex-end;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+.title1 {
+  font-size: 34px;
+  font-weight: 500;
+  margin-bottom: 0px;
+  color: white;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px 2px 4px;
+}
