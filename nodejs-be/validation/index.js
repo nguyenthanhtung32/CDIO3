@@ -14,14 +14,6 @@ const validateSchema = (schema) => async (req, res, next) => {
   }
 };
 
-const getSupplierSchema = yup.object({
-  query: yup.object({
-    skip: yup.number(),
-    limit: yup.number(),
-  }),
-});
-
 module.exports = {
   validateSchema,
-  getSupplierSchema,
 };
