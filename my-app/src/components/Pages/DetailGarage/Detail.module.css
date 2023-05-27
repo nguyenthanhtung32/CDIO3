@@ -1,0 +1,87 @@
+.product {
+    width: auto;
+    margin: 30px auto;
+    display: flex;
+    height: 200px;
+    border: 1px solid #cccc;
+}
+
+.name {
+    display: flex;
+    margin-top: 10px;
+}
+
+.price {
+    display: flex;
+    justify-content: right;
+    margin-right: 10px;
+}
+.car{
+    display: flex;
+    justify-content: right;
+    margin-right: 10px;
+    margin-top: 100px;
+}
+.aaaa{
+    width: 100%;
+}
+
+.product_images {
+    width: 300px;
+    height: 180px;
+    margin: 10px 10px 0px 10px;
+    background-color: #e1e1e1;
+    background: url("https://static.vexere.com/production/images/1595244025097.jpeg?w=250&h=250");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.product_images_anh2{
+    width: 300px;
+    height: 180px;
+    margin: 10px 10px 0px 10px;
+    background-color: #e1e1e1;
+    background: url("https://static.vexere.com/production/images/1615178866507.png?w=250&h=250");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.product_images_anh3{
+    width: 300px;
+    height: 180px;
+    margin: 10px 10px 0px 10px;
+    background-color: #e1e1e1;
+    background: url("https://static.vexere.com/production/images/1615965314937.png?w=250&h=250");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.product_details{
+    margin-left: 5px;
+}
+.product_details h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #111111;
+}
+
+.price h3{
+    font-size: 24px;
+    font-weight: 600;
+    color: #f2c94c;
+    margin-top: 10px;
+}
+/* .car{
+    margin: auto;
+} */
+/* .car1{
+    margin: 110px 0px 0px 135px;
+}
+.car2{
+    margin: 110px 0px 0px 145px;
+} */
+.material_symbols_outlined {
+    color: #111111;
+    font-size: 22px;
+    cursor: pointer;
+}
