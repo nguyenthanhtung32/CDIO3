@@ -126,7 +126,7 @@ function Home() {
                   <div className="card-body">
                     <h5 className="card-title text-danger">{item.name}</h5>
                     <h5 style={{ marginBottom: "20px" }}>{item.price}</h5>
-                    <Link to={"/detail"} className={Styles.buy_now}>
+                    <Link to={"/detailgarage"} className={Styles.buy_now}>
                       Xem Chi tiết
                     </Link>
                   </div>

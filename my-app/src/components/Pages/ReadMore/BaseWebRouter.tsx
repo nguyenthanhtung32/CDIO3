@@ -4,9 +4,10 @@ import Header from "../../Common/Header/Header";
 import Navigation from "../../Common/Navigation/Navigation";
 import Login from "../Auth/Login";
 import SignUp from "../Auth/Signup";
-import Detail from "../Detail/Detail";
+import DetailGarage from "../DetailGarage/DetailGarage";
 import Home from "../Home/Home";
 import List from "../List/List";
+import DetailRoute from "../DetailRoute/DetailRoute";
 
 function BaseWebRouter() {
   return (
@@ -18,8 +19,8 @@ function BaseWebRouter() {
         <Route path="/login" element={<Login />} />
         <Route path="/list" element={<List />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/detail" element={<Detail />} />
-        <Route path="/list/detail/:id" element={<Detail />} />
+        <Route path="/detailgarage" element={<DetailGarage />} />
+        <Route path="/list/detail/:id" element={<DetailRoute />} />
         <Route path="*" element={<p>404 Page not found</p>} />
       </Routes>
       {/* <Footer /> */}

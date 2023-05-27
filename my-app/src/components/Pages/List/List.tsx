@@ -3,10 +3,11 @@ import { useNavigate } from "react-router-dom";
 type Props = {};
 
 interface IUser {
-  name: string;
   start: string;
   end: string;
   id: string | number;
+  timeStart : string;
+  price : string;
 }
 
 function List(props: Props) {
@@ -29,35 +30,18 @@ function List(props: Props) {
         console.error("Error:", error);
       });
   };
-  const handleDelete = (userId: string | number) => {
-    const url = "https://63a06c2de3113e5a5c3d35ba.mockapi.io/tickets/" + userId;
-    fetch(url, {
-      method: "DELETE",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        getListUser();
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
 
   const handleDetail = (userId: string | number) => {
     console.log("handleDetail", userId);
     navigate(`detail/${userId}`);
   };
 
-  const handleUpdate = (userId: string | number) => {
-    console.log("handleDetail", userId);
-    navigate(`form/${userId}`);
-  };
   return (
-    <table className="table">
+    <table className="table table-bordered border-danger" style={{textAlign : "center"}}>
       <thead>
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">Name</th>
+          <th scope="col">Giá vé</th>
           <th scope="col">Giờ xuất phát</th>
           <th scope="col">Điểm bắt đầu</th>
           <th scope="col">Điểm kết thúc</th>
@@ -68,22 +52,11 @@ function List(props: Props) {
         {listUser.map((item) => (
           <tr key={item.id}>
             <th scope="row">{item.id}</th>
-            <td>{item.name}</td>
+            <td>{item.price}</td>
+            <td>{item.timeStart}</td>
             <td>{item.start}</td>
             <td>{item.end}</td>
             <td>
-              <button
-                className="btn btn-danger"
-                onClick={() => handleUpdate(item.id)}
-              >
-                Update
-              </button>
-              <button
-                className="btn btn-danger"
-                onClick={() => handleDelete(item.id)}
-              >
-                Delete
-              </button>
               <button
                 className="btn btn-success"
                 onClick={() => handleDetail(item.id)}
