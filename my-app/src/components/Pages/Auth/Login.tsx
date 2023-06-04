@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Styles from "./Login.module.css";
 
 // interface IProps {
 //   setIsLogin: (value: boolean) => void;
 // }
 
 const Login: React.FC = () => {
-
   //let params = useParams();
   const navigate = useNavigate();
   const [userName, setUserName] = useState<string>();
@@ -22,7 +22,7 @@ const Login: React.FC = () => {
 
     if (userName === "HoangVinh" && userPassWord === "Vinh02") {
       alert("login thanh cong");
-      navigate('/');
+      navigate("/");
     } else {
       alert("login fail");
     }
@@ -40,35 +40,45 @@ const Login: React.FC = () => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="w-50 mx-auto border border-success mt-5 mb-5"
-    >
-      <div className="mb-3 ms-5 me-5">
-        <label className="form-label ">Tên đăng nhập</label>
-        <input
-          className="form-control border-success"
-          type="text"
-          name="userName"
-          defaultValue={userName}
-          onChange={handleName}
-        />
+    <>
+      <div className={Styles.container}>
+        <form className={Styles.form_1}>
+          <h1 className={Styles.login}>Login</h1>
+          <label htmlFor="name" className={Styles.label}>
+            Tên đăng nhập
+          </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            required
+            className={Styles.input}
+            onChange={handleName}
+          />
+          <label htmlFor="password" className={Styles.label}>
+            Password
+          </label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            required
+            className={Styles.input}
+            onChange={handleAge}
+          />
+          <span className={Styles.span}>Forgot Password</span>
+          <button className={Styles.button} onClick={(e: any) => handleSubmit(e)}>
+            Login
+          </button>
+          <div className="d-flex justify-content-center ">
+            <p className={Styles.text}>Don't have an acount ?</p>
+            <Link to="/signup" className={Styles.text2}>
+              SignUp
+            </Link>
+          </div>
+        </form>
       </div>
-      <div className="mb-3 ms-5 me-5">
-        <label className="form-label">Mật khẩu</label>
-        <input
-          className="form-control border-success"
-          type="password"
-          name="userAge"
-          defaultValue={userPassWord}
-          onChange={handleAge}
-        />
-      </div>
-
-      <button type="submit" className="btn btn-success ms-5 mb-5">
-        Login
-      </button>
-    </form>
+    </>
   );
 };
 
