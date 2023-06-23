@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Styles from "./Detail.module.css";
+import Styles from "../DetailGarage/Detail.module.css";
 
 interface IUser {
     nameTai: string;
@@ -86,15 +86,15 @@ export default function Detail() {
                 <tbody>
                   <tr className={Styles.clnhat}>
                     <td>Giờ khởi hành</td>
-                    <td>{user?.timeStart}</td>
+                    <td>{user?.timeStart1}</td>
                   </tr>
                   <tr>
                     <td>Địa điểm</td>
-                    <td>{user?.start}</td>
+                    <td>{user?.start1}</td>
                   </tr>
                   <tr className={Styles.clnhat}>
                     <td>Giá vé</td>
-                    <td>{user?.price}</td>
+                    <td>{user?.price1}</td>
                   </tr>
                 </tbody>
               </table>
@@ -116,15 +116,15 @@ export default function Detail() {
                   </tr>
                   <tr>
                     <td>Tên tài xế</td>
-                    <td>{user?.nameTai}</td>
+                    <td>{user?.nameTai1}</td>
                   </tr>
                   <tr className={Styles.clnhat}>
                     <td>Số điện thoại</td>
-                    <td>{user?.phoneNumber}</td>
+                    <td>{user?.phoneNumber1}</td>
                   </tr>
                   <tr>
                     <td>Biển số xe</td>
-                    <td>{user?.BienSo}</td>
+                    <td>{user?.BienSo1}</td>
                   </tr>
                 </tbody>
               </table>
@@ -142,15 +142,15 @@ export default function Detail() {
                 <tbody>
                   <tr className={Styles.clnhat}>
                     <td>Thời gian dự kiến</td>
-                    <td>{user?.intendtime}</td>
+                    <td>{user?.intendtime1}</td>
                   </tr>
                   <tr>
                     <td>Địa điểm</td>
-                    <td>{user?.end}</td>
+                    <td>{user?.end1}</td>
                   </tr>
                   <tr className={Styles.clnhat}>
                     <td>Giá vé</td>
-                    <td>{user?.price}</td>
+                    <td>{user?.price1}</td>
                   </tr>
                 </tbody>
               </table>
