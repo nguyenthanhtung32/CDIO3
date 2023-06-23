@@ -22,7 +22,6 @@ function BaseWebRouter() {
         <Route path="/detail/:id/detail/:id" element={<DetailGarage />} />
         <Route path="/detail/:id" element={<DetailRoute />} />
         <Route path="*" element={<p>404 Page not found</p>} />
-
       </Routes>
       <Footer />
     </BrowserRouter>

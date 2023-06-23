@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { message } from "antd";
+
 import Styles from "./Login.module.css";
 
-// interface IProps {
-//   setIsLogin: (value: boolean) => void;
-// }
-
 const Login: React.FC = () => {
-  //let params = useParams();
   const navigate = useNavigate();
   const [userName, setUserName] = useState<string>();
   const [userPassWord, setUserPassWord] = useState("");
@@ -15,27 +12,22 @@ const Login: React.FC = () => {
   useEffect(() => {}, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    // event of form
     e.preventDefault();
-    console.log("handleSubmit", userName);
-    console.log("handleSubmit:", userPassWord);
 
     if (userName === "HoangVinh" && userPassWord === "Vinh02") {
-      alert("login thanh cong");
+      message.success("Đăng nhập thành công!", 1.5);
       navigate("/");
     } else {
-      alert("login fail");
+      message.warning("Đăng nhập thất bại!", 1.5);
     }
   };
 
   const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
     setUserName(e.target.value);
   };
 
   const handleAge = (e: React.ChangeEvent<HTMLInputElement>) => {
     const tempvalue = e.target.value;
-    console.log(e.target.value);
     setUserPassWord(tempvalue);
   };
 
@@ -43,7 +35,7 @@ const Login: React.FC = () => {
     <>
       <div className={Styles.container}>
         <form className={Styles.form_1}>
-          <h1 className={Styles.login}>Login</h1>
+          <h1 className={Styles.login}>Đăng nhập</h1>
           <label htmlFor="name" className={Styles.label}>
             Tên đăng nhập
           </label>
@@ -56,7 +48,7 @@ const Login: React.FC = () => {
             onChange={handleName}
           />
           <label htmlFor="password" className={Styles.label}>
-            Password
+            Mật khẩu
           </label>
           <input
             type="password"
@@ -66,14 +58,17 @@ const Login: React.FC = () => {
             className={Styles.input}
             onChange={handleAge}
           />
-          <span className={Styles.span}>Forgot Password</span>
-          <button className={Styles.button} onClick={(e: any) => handleSubmit(e)}>
-            Login
+          <span className={Styles.span}>Quên mật khẩu</span>
+          <button
+            className={Styles.button}
+            onClick={(e: any) => handleSubmit(e)}
+          >
+            Đăng nhập
           </button>
           <div className="d-flex justify-content-center ">
-            <p className={Styles.text}>Don't have an acount ?</p>
+            <p className={Styles.text}>Chưa có tài khoản ?</p>
             <Link to="/signup" className={Styles.text2}>
-              SignUp
+              Đăng kí
             </Link>
           </div>
         </form>

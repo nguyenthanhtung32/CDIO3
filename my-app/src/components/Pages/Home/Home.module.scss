@@ -54,7 +54,25 @@ body {
     margin: auto;
 }
 
-
+.buy_now {
+    padding: 10px 15px;
+    margin-top: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #f2c94c;
+    color: var(--white);
+    border: none;
+    border-radius: 15px;
+    font-weight: 500;
+    border: 1px solid #f05e8a;
+    transition: 0.5s;
+    text-decoration: none;
+  }
+  .buy_now:hover {
+    background-color: var(--white);
+    font-weight: 600;
+  }
 .row {
     display: flex;
     flex-wrap: wrap;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { Button, DatePicker, Space } from "antd";
 import { Select } from "antd";
@@ -15,27 +15,36 @@ interface IBooking {
   sale: string;
 }
 
+interface IRouters {
+  name: string;
+  avatar: "https://hotel.web4s.vn/wp-content/uploads/2017/08/blog-7.jpg";
+  id: string | number;
+  price: string;
+}
+
 const { Option } = Select;
 const to = [
   { value: "HN", label: "Hà Nội" },
   { value: "HCM", label: "Hồ Chí Minh" },
   { value: "DN", label: "Đà Nẵng" },
-  { value: "HP", label: "Hải Phòng" },
+  { value: "QN", label: "Quảng Nam" },
 ];
 
 const from = [
   { value: "HN", label: "Hà Nội" },
   { value: "HCM", label: "Hồ Chí Minh" },
   { value: "DN", label: "Đà Nẵng" },
-  { value: "HP", label: "Hải Phòng" },
+  { value: "QN", label: "Quảng Nam" },
 ];
 
 function Home() {
   const navigate = useNavigate();
   const [listBooking, setListBooking] = useState<Array<IBooking>>([]);
+  const [listRouters, setListRouters] = useState<Array<IRouters>>([]);
 
   useEffect(() => {
     getListBooking();
+    getListRouters();
   }, []);
   const getListBooking = () => {
     const url = "https://63a06c2de3113e5a5c3d35ba.mockapi.io/tickets";
@@ -45,6 +54,20 @@ function Home() {
       .then((response) => response.json())
       .then((data) => {
         setListBooking(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
+  const getListRouters = () => {
+    const url = "https://645de14b8d08100293f117de.mockapi.io/routes";
+    fetch(url, {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setListRouters(data);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -120,7 +143,7 @@ function Home() {
               className={styles.C_option}
             >
               {to.map((option) => (
-                <Option key={option.value} value={option.value} >
+                <Option key={option.value} value={option.value}>
                   {option.label}
                 </Option>
               ))}
@@ -214,6 +237,49 @@ function Home() {
                     <h3 className={styles.product_name}>{item.name}</h3>
                     <div className={styles.off_info}>
                       <h2 className={styles.sm_title}>{item.sale}</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className={styles.product_list}>
+        <div className={styles.container}>
+        <h2 className={styles.product_title}>Các tuyến đường nổi bật</h2>
+          <div className="row text-center">
+            {listRouters.map((item) => (
+              <div className="col-xl-3 col-sm-12 col-md-6">
+                <div
+                  key={item.id}
+                  style={{ transition: "transform 0.2s ease-in-out" }}
+                  onMouseOver={(e) =>
+                    (e.currentTarget.style.transform = "scale(1.05)")
+                  }
+                  onMouseOut={(e) => (e.currentTarget.style.transform = "")}
+                >
+                  <div
+                    className="card mb-5 "
+                    style={{
+                      width: "18rem",
+                      borderRadius: "20px",
+                      boxShadow:
+                        "0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)",
+                    }}
+                  >
+                    <img
+                      src={item.avatar}
+                      className="card-img-top"
+                      style={{ height: "170px" }}
+                      alt="..."
+                    />
+                    <div className="card-body">
+                      <h5 className="card-title text-danger">{item.name}</h5>
+                      <h5 style={{ marginBottom: "20px" }}>{item.price}</h5>
+                      <Link to={"/detail"} className={styles.buy_now}>
+                        Xem Chi tiết
+                      </Link>
                     </div>
                   </div>
                 </div>

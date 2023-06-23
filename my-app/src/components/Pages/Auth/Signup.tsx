@@ -1,8 +1,11 @@
 import React from "react";
+import { message } from "antd";
+
 import Styles from "./Login.module.css";
 
 const onFinish = (e: any) => {
-  console.log("Success:", e);
+    message.success("Đăng kí thành công!", 1.5);
+    window.location.href = "/login";
 };
 
 const SignUp: React.FC = () => (
@@ -53,7 +56,6 @@ const SignUp: React.FC = () => (
         required
         className={Styles.input}
       />
-      <span className={Styles.span}>Forgot Password</span>
       <button className={Styles.button} onClick={(e: any) => onFinish(e)}>
         Đăng kí
       </button>

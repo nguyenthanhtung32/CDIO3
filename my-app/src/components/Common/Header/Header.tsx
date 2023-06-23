@@ -15,14 +15,14 @@ export default function Header() {
             <Link to="/">
               <img
                 className={Styles.logo}
-                src="https://www.milanoplatinum.com/wp-content/uploads/2015/11/THE-MALL_logo_MilanoPlatinum.png"
+                src="https://storage.googleapis.com/fe-production/icon_vxr_full.svg?gidzl=oEOf5y2zGX38-2mPowL14S3xBn_Lg4WGZViY6eMYJ1VOh21DqlD9Hzsk9HpGyqmGZ_js5ZWxQry_mRz66m"
                 alt="Logo"
               />
             </Link>
             <Link to="/" className={Styles.home}>
               Trang chủ
             </Link>
-            <Link to="/all-products" className={Styles.home}>
+            <Link to="#" className={Styles.home}>
               Vé
             </Link>
             <Link to="#" className={Styles.home}>
@@ -33,12 +33,12 @@ export default function Header() {
         <div className={Styles.right_nav_links}>
           <div>
             <div className={Styles.search}>
-              <Link to="/all-products">
+              <Link to="#">
                 <SearchOutlined />
               </Link>
             </div>
             <div className={Styles.cart_container}>
-              <Link to="/cart">
+              <Link to="#">
                 <ShoppingCartOutlined className={Styles.cart_icon} />
               </Link>
             </div>

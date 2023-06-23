@@ -19,12 +19,6 @@ function Navigation() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
-            {/* <ul className="navbar-nav">
-              <li className="nav-item d-flex">
-                <IoLogoWhatsapp />
-                <p>090536897</p>
-              </li>
-            </ul> */}
             <img
               src="https://storage.googleapis.com/fe-production/icon_vxr_full.svg"
               style={{ marginLeft: "40px" }}
